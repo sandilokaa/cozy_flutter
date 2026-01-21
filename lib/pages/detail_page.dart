@@ -17,21 +17,6 @@ class DetailPage extends StatelessWidget {
               height: 350,
               fit: BoxFit.cover,
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: edge, vertical: 30),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  InkWell(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: Image.asset('assets/icon_btn_back.png', width: 40),
-                  ),
-                  Image.asset('assets/icon_btn_wishlist.png', width: 40),
-                ],
-              ),
-            ),
             ListView(
               children: [
                 SizedBox(height: 328),
@@ -101,6 +86,23 @@ class DetailPage extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+            Positioned(
+              top: 30,
+              left: edge,
+              right: edge,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Image.asset('assets/icon_btn_back.png', width: 40),
+                  ),
+                  Image.asset('assets/icon_btn_wishlist.png', width: 40),
+                ],
+              ),
             ),
           ],
         ),
