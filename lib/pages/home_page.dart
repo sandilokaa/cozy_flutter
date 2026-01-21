@@ -1,6 +1,6 @@
-import 'package:cozy_flutter/models/city.dart';
-import 'package:cozy_flutter/models/space.dart';
-import 'package:cozy_flutter/models/tips.dart';
+import 'package:cozy_flutter/data/dummy_city.dart';
+import 'package:cozy_flutter/data/dummy_space.dart';
+import 'package:cozy_flutter/data/dummy_tips.dart';
 import 'package:cozy_flutter/widgets/bottom_navbar_item.dart';
 import 'package:cozy_flutter/widgets/city_card.dart';
 import 'package:cozy_flutter/widgets/space_card.dart';
@@ -50,7 +50,7 @@ class HomePage extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 children: [
                   const SizedBox(width: 24),
-                  ...cityLists.map((city) {
+                  ...dummyCities.map((city) {
                     return Padding(
                       padding: const EdgeInsets.only(right: 16),
                       child: CityCard(key: ValueKey(city.id), city: city),
@@ -71,9 +71,9 @@ class HomePage extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: edge),
               child: Column(
-                children: List.generate(spaceLists.length, (index) {
-                  final space = spaceLists[index];
-                  final isLast = index == spaceLists.length - 1;
+                children: List.generate(dummySpaces.length, (index) {
+                  final space = dummySpaces[index];
+                  final isLast = index == dummySpaces.length - 1;
 
                   return Padding(
                     padding: EdgeInsets.only(bottom: isLast ? 0 : 30),
@@ -97,9 +97,9 @@ class HomePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Column(
-                    children: List.generate(tipsLists.length, (index) {
-                      final tips = tipsLists[index];
-                      final isLast = index == tipsLists.length - 1;
+                    children: List.generate(dummyTips.length, (index) {
+                      final tips = dummyTips[index];
+                      final isLast = index == dummyTips.length - 1;
 
                       return Padding(
                         padding: EdgeInsets.only(bottom: isLast ? 0 : 20),

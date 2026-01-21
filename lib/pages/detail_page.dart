@@ -9,13 +9,14 @@ class DetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
+        top: false,
         bottom: false,
         child: Stack(
           children: [
             Image.asset(
               'assets/city_three.png',
               width: MediaQuery.of(context).size.width,
-              height: 350,
+              height: 450,
               fit: BoxFit.cover,
             ),
             ListView(
@@ -116,13 +117,65 @@ class DetailPage extends StatelessWidget {
                           ],
                         ),
                       ),
+                      SizedBox(height: 30),
+                      Padding(
+                        padding: EdgeInsets.only(left: edge),
+                        child: Text(
+                          'Photos',
+                          style: regularTextStyle.copyWith(fontSize: 16),
+                        ),
+                      ),
+                      SizedBox(height: 12),
+                      SizedBox(
+                        height: 88,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: [
+                            SizedBox(width: edge),
+                            Image.asset(
+                              'assets/photo_one.png',
+                              width: 110,
+                              height: 88,
+                              fit: BoxFit.cover,
+                            ),
+                            SizedBox(width: 18),
+                            Image.asset(
+                              'assets/photo_two.png',
+                              width: 110,
+                              height: 88,
+                              fit: BoxFit.cover,
+                            ),
+                            SizedBox(width: 18),
+                            Image.asset(
+                              'assets/photo_three.png',
+                              width: 110,
+                              height: 88,
+                              fit: BoxFit.cover,
+                            ),
+                            SizedBox(width: 18),
+                            Image.asset(
+                              'assets/photo_four.png',
+                              width: 110,
+                              height: 88,
+                              fit: BoxFit.cover,
+                            ),
+                            SizedBox(width: 18),
+                            Image.asset(
+                              'assets/photo_five.png',
+                              width: 110,
+                              height: 88,
+                              fit: BoxFit.cover,
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
               ],
             ),
             Positioned(
-              top: 30,
+              top: 70,
               left: edge,
               right: edge,
               child: Row(
