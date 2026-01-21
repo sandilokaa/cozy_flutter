@@ -1,4 +1,5 @@
 import 'package:cozy_flutter/theme.dart';
+import 'package:cozy_flutter/widgets/facility_item.dart';
 import 'package:flutter/material.dart';
 
 class DetailPage extends StatelessWidget {
@@ -29,6 +30,7 @@ class DetailPage extends StatelessWidget {
                     color: whiteColor,
                   ),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(height: 30),
                       Padding(
@@ -78,6 +80,38 @@ class DetailPage extends StatelessWidget {
                                   color: Color(0xFF989BA1),
                                 ),
                               ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 30),
+                      Padding(
+                        padding: EdgeInsets.only(left: edge),
+                        child: Text(
+                          'Main Facilities',
+                          style: regularTextStyle.copyWith(fontSize: 16),
+                        ),
+                      ),
+                      SizedBox(height: 12),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: edge),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            FacilityItem(
+                              name: 'kitchen',
+                              imageUrl: 'assets/icon_kitchen.png',
+                              total: 2,
+                            ),
+                            FacilityItem(
+                              name: 'bedroom',
+                              imageUrl: 'assets/icon_bed.png',
+                              total: 3,
+                            ),
+                            FacilityItem(
+                              name: 'cupboard',
+                              imageUrl: 'assets/icon_cupboard.png',
+                              total: 3,
                             ),
                           ],
                         ),
