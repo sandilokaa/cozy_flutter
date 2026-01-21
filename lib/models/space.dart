@@ -22,7 +22,7 @@ final spaceLists = [
   Space(
     id: 1,
     name: 'Kretakeso Hott',
-    imageUrl: 'assets/city_one.png',
+    imageUrl: 'assets/space_one.png',
     price: 250,
     city: 'Jakarta',
     country: 'Indonesia',
@@ -31,7 +31,7 @@ final spaceLists = [
   Space(
     id: 2,
     name: 'Urban Space Hub',
-    imageUrl: 'assets/city_two.png',
+    imageUrl: 'assets/space_two.png',
     price: 180,
     city: 'Bandung',
     country: 'Indonesia',
@@ -40,7 +40,7 @@ final spaceLists = [
   Space(
     id: 3,
     name: 'Ocean View',
-    imageUrl: 'assets/city_three.png',
+    imageUrl: 'assets/space_three.png',
     price: 320,
     city: 'Denpasar',
     country: 'Indonesia',
