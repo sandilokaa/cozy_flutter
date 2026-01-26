@@ -1,13 +1,30 @@
+import 'package:cozy_flutter/pages/error_page.dart';
 import 'package:cozy_flutter/theme.dart';
 import 'package:cozy_flutter/widgets/facility_item.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DetailPage extends StatelessWidget {
   const DetailPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    Future<void> openUrl(String url) async {
+      final uri = Uri.parse(url);
+
+      if (await canLaunchUrl(uri)) {
+        await launchUrl(uri, mode: LaunchMode.externalApplication);
+      } else {
+        Navigator.push(
+          // ignore: use_build_context_synchronously
+          context,
+          MaterialPageRoute(builder: (context) => ErrorPage()),
+        );
+      }
+    }
+
     return Scaffold(
+      backgroundColor: whiteColor,
       body: SafeArea(
         top: false,
         bottom: false,
@@ -172,6 +189,59 @@ class DetailPage extends StatelessWidget {
                     ],
                   ),
                 ),
+                SizedBox(height: 30),
+                Padding(
+                  padding: EdgeInsets.only(left: edge),
+                  child: Text(
+                    'Location',
+                    style: regularTextStyle.copyWith(fontSize: 16),
+                  ),
+                ),
+                SizedBox(height: 6),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: edge),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Jln. Kapan Sukses No. 20\nPalembang',
+                        style: greyextStyle,
+                      ),
+                      InkWell(
+                        onTap: () => {
+                          // openUrl('https://goo.gl/maps/SyZx2yjWB1yR6AeH8'),
+                          openUrl('qwertyuiop'),
+                        },
+                        child: Image.asset(
+                          'assets/icon_btn_location.png',
+                          width: 40,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 40),
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: edge),
+                  height: 50,
+                  width: MediaQuery.of(context).size.width - (2 * edge),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFF5843BE),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(17),
+                      ),
+                    ),
+                    onPressed: () {
+                      openUrl('tel:+628123456789');
+                    },
+                    child: Text(
+                      'Book Now',
+                      style: whiteTextStyle.copyWith(fontSize: 18),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 40),
               ],
             ),
             Positioned(
