@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cozy_flutter/models/space.dart';
 import 'package:cozy_flutter/pages/detail_page.dart';
 import 'package:cozy_flutter/theme.dart';
@@ -14,7 +15,7 @@ class SpaceCard extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => DetailPage()),
+          MaterialPageRoute(builder: (context) => DetailPage(space: space)),
         );
       },
       child: Row(
@@ -26,7 +27,17 @@ class SpaceCard extends StatelessWidget {
               width: 130,
               child: Stack(
                 children: [
-                  Image.asset(space.imageUrl),
+                  CachedNetworkImage(
+                    imageUrl: space.imageUrl,
+                    fit: BoxFit.cover,
+                    width: 130,
+                    height: 110,
+                    placeholder: (context, url) => const Center(
+                      child: CircularProgressIndicator(strokeWidth: 2),
+                    ),
+                    errorWidget: (context, url, error) =>
+                        const Icon(Icons.broken_image),
+                  ),
                   Align(
                     alignment: Alignment.topRight,
                     child: Container(
