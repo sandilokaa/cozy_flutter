@@ -3,6 +3,7 @@ import 'package:cozy_flutter/models/space.dart';
 import 'package:cozy_flutter/pages/error_page.dart';
 import 'package:cozy_flutter/theme.dart';
 import 'package:cozy_flutter/widgets/facility_item.dart';
+import 'package:cozy_flutter/widgets/rating_item.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -94,21 +95,15 @@ class DetailPage extends StatelessWidget {
                               ],
                             ),
                             Row(
-                              children: [
-                                Image.asset('assets/icon_star.png', width: 20),
-                                SizedBox(width: 2),
-                                Image.asset('assets/icon_star.png', width: 20),
-                                SizedBox(width: 2),
-                                Image.asset('assets/icon_star.png', width: 20),
-                                SizedBox(width: 2),
-                                Image.asset('assets/icon_star.png', width: 20),
-                                SizedBox(width: 2),
-                                Image.asset(
-                                  'assets/icon_star.png',
-                                  width: 20,
-                                  color: Color(0xFF989BA1),
-                                ),
-                              ],
+                              children: [1, 2, 3, 4, 5].map((index) {
+                                return Container(
+                                  margin: EdgeInsets.only(left: 2),
+                                  child: RatingItem(
+                                    index: index,
+                                    rating: space.rating,
+                                  ),
+                                );
+                              }).toList(),
                             ),
                           ],
                         ),
